@@ -23,5 +23,6 @@ This method does not cache the image object. */
 The `UIImage` is cached in an `NSCache` with the identifier provided. */
 + (UIImage *)imageWithIdentifier:(NSString *)identifier forSize:(CGSize)size andDrawingBlock:(void(^)())drawingBlock;
 + (UIImage *)imageWithIdentifier:(NSString *)identifier opaque:(BOOL)opaque forSize:(CGSize)size andDrawingBlock:(void(^)())drawingBlock;
++ (void)deCacheImageWithIdentifier:(NSString*)identifier;
 
 @end

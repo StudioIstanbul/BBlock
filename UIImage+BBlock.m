@@ -49,4 +49,10 @@
     return [self imageWithIdentifier:identifier opaque:NO forSize:size andDrawingBlock:drawingBlock];
 }
 
++ (void)deCacheImageWithIdentifier:(NSString*)identifier {
+    NSLog(@"decaching image");
+    [[self drawingCache] removeObjectForKey:identifier];
+    
+}
+
 @end
