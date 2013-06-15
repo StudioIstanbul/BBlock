@@ -41,6 +41,8 @@
     UIImage *image = [[self drawingCache] objectForKey:identifier];
     if(image == nil && (image = [self imageForSize:size opaque:opaque withDrawingBlock:drawingBlock])){
         [[self drawingCache] setObject:image forKey:identifier];
+    } else {
+        NSLog(@"using cached image %@", identifier);
     }
     return image;
 }
@@ -50,9 +52,13 @@
 }
 
 + (void)deCacheImageWithIdentifier:(NSString*)identifier {
-    NSLog(@"decaching image");
+    //NSLog(@"decaching image");
     [[self drawingCache] removeObjectForKey:identifier];
     
+}
+
++(void)deCacheAllImages {
+    [[self drawingCache] removeAllObjects];
 }
 
 @end
